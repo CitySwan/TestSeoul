@@ -53,7 +53,7 @@ public class FreeService {
 			return freeDao.getTotal(fb);
 		}
 		
-		public int freeLikeUpdate(int free_no) {
+	 	public int freeLikeUpdate(int free_no) {
 	 		return freeDao.freeLikeUpdate(free_no);
 	 	}
 	 	

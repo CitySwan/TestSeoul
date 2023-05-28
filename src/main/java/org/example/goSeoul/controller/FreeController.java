@@ -246,27 +246,28 @@ public class FreeController {
 		return "free/freeDeleteResult";
 	}
 	
-	// 좋아요
 	@RequestMapping("freeLikeUpdate.do")
 	public String freeLike(int num, String pageNum, Model model) {
-		System.out.println("num:"+ num);
-		System.out.println("pageNum:"+ pageNum);
-		
+		System.out.println("num:" + num);
+		System.out.println("pageNum:" + pageNum);
+
 		int result = freeService.freeLikeUpdate(num);
-		if(result == 1) System.out.println("좋아요 증가");
-		return "redirect:freeContent.do?num="+num+"&pageNum="+pageNum;
+		if (result == 1)
+			System.out.println("좋아요 증가");
+
+		return "redirect:freeList.do?pageNum=" + pageNum;
 	}
-	
-	// 싫어요
+
 	@RequestMapping("freeDislikeUpdate.do")
 	public String freeDislikeUpdate(int num, String pageNum, Model model) {
-		System.out.println("num:"+ num);
-		System.out.println("pageNum:"+ pageNum);
-		
+		System.out.println("num:" + num);
+		System.out.println("pageNum:" + pageNum);
+
 		int result = freeService.freeDislikeUpdate(num);
-		if(result == 1) System.out.println(" 싫어요 증가");
-		
-		return "redirect:freeContent.do?num="+num+"&pageNum="+pageNum;
+		if (result == 1)
+			System.out.println(" 싫어요 증가");
+
+		return "redirect:freeList.do?pageNum=" + pageNum;
 	}
 }
 

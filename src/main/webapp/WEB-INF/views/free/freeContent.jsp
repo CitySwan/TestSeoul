@@ -25,7 +25,9 @@
 
 
 <script type="text/javascript">
-	/* 
+	/* 	window.onload=function() {
+	
+	 } */
 	$(function() {
 		// 기존 댓글 목록 출력
 		$('#slist').load('slist.do?num=${freeBean.free_no}');
@@ -60,17 +62,13 @@
 		});
 
 	});
-	  */
-		document.getElementById("add-goodRp-btn").onclick = function() {
-			alert("좋아요 +1");
-			location.href = "freeLikeUpdate.do?num=${freeBean.free_no}&pageNum=${pageNum}";
-		};
+</script>
 
-		document.getElementById("add-badRp-btn").onclick = function() {
-			alert("싫어요 +1");
-			location.href = "freeDislikeUpdate.do?num=${freeBean.free_no}&pageNum=${pageNum}";
-		};
-	</script>
+
+
+
+
+
 	
 <style>
 * {
@@ -109,11 +107,7 @@ img{
 			<div
 				style="width: 100%; height: auto; margin: 50px auto; 
 				background-color: white; border-radius: 10px;">
-
-				<input type="hidden" name="free_id" value="${freeBean.free_id}"> 
-				<input type="hidden" name="free_no" value="${freeBean.free_no}"> 
-				<input type="hidden" name="pageNum" value="${pageNum}">	
-				
+		
 
 				<div class="form-group row">
 					<label for="free_category" style="text-indent: 10px;"
@@ -151,20 +145,42 @@ img{
 						
 					</tbody>
 				</table>
-							<div style="magrin: 0 auto; text-align: center;">
-							<c:set var="id" value="${id }" scope="session" />
-							<c:if test="${id != null }">
-							<tr>
-								<td><span id="add-goodRp-btn" 
+				
+				
+				
+					
+				
+					<div style="magrin: 0 auto; text-align: center;">
+					<script>
+					var freeid = ${freeBean.free_id};
+					</script>
+					<c:set var="id" value="${id }" scope="session" />
+					<c:if test="${id != null }">
+						<c:if test="${id != freeid }">
+						
+						<tr>
+							<td><span id="add-goodRp-btn"
 								class="btn btn-outline-primary">좋아요<br>👍
-								</span></td>
-								<td><span id="add-badRp-btn" 
-								class="btn btn-outline-danger">싫어요<br>👎
-								</span></td>
-							</tr>
+							</span></td>
+							<td><span id="add-badRp-btn" class="btn btn-outline-danger">싫어요<br>👎
+							</span></td>
+						</tr>
+							</c:if>
 						</c:if>
-							</div>
+						
+			
+					
+					
+					
+				</div>
 				<br>
+				
+				
+				
+				
+				
+				
+				
 				<div class="write-btn">
 					<a href="freeWrite.do?pageNum=${pageNum}"
 						class="btn btn-outline-primary">작성</a> <a
@@ -180,21 +196,37 @@ img{
 		</div>
 	</form>
 	
-	<%-- 
+	
 	<div style="magrin: 0 auto; text-align: center;">
 		<form name="frm" id="frm"  >
 			<!-- 댓글 3개 정보 갖고감 bno, replytext, replyer-->
 			<input type="hidden" name="freereply_id" value="${sessionScope.id}"> 
 			<input type="hidden" name="free_no" value="${freeBean.free_no }">
-			<input type="hidden" name="freereply_nick" value="${freeBean.free_nick }">
+			<%-- <input type="hidden" name="freereply_nick" value="${freeBean.free_nick }"> --%>
 				
 				 댓글 :
 			<textarea rows="3" cols="50" name="freereply_content"></textarea>
 			<input type="button" value="확인" id="repInsert">
 		</form>
 	</div>
+
+	<script>
+		document.getElementById("add-goodRp-btn").onclick = function() {
+			alert("좋아요 +1");
+			location.href = "freeLikeUpdate.do?num=${freeBean.free_no}&pageNum=${pageNum}";
+		};
+
+		document.getElementById("add-badRp-btn").onclick = function() {
+			alert("싫어요 +1");
+			location.href = "freeDislikeUpdate.do?num=${freeBean.free_no}&pageNum=${pageNum}";
+		};
+	</script>
+
 	<div id="slist"></div>
- --%>
+
+
+
+
 	
 	<c:import url="../footer.jsp" />
 </body>

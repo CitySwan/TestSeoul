@@ -9,5 +9,6 @@
         <typeAlias alias="free" type="org.example.goSeoul.model.FreeBean"/>
         <typeAlias alias="reserve" type="org.example.goSeoul.model.ReserveBean"/>
         <typeAlias alias="question" type="org.example.goSeoul.model.QuestionBean"/>
+         <typeAlias alias="rb" type="org.example.goSeoul.model.FreeReply"/>
     </typeAliases>
 </configuration>
